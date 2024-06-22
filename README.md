@@ -1,1 +1,6 @@
 # gits-tech-test
+
+## Explained  
+1. WeightedStrings : The CalculateWeights function is used to calculate the weight of the input string s, while the CheckWeights function will check whether the weight of the resulting substring is the same as the number in the query and returns a Yes or No status according to the given rules.
+2. BalancedBracket : The time complexity of the above implementation is O(n), where n is the number of characters in the input string. This is because we only traverse the input string once to check each character. For each character, the operations performed on the stack (push and pop) have a complexity of O(1). So, the overall complexity of the code is O(n).
+3. HightedStrings : The FindHighestPalindrome function will check whether the input string is already a palindrome. If so, the function will return the string. If not, the function will try to change the characters in the opposite position so that the string becomes a palindrome and reduce the value of k by the number of characters replaced. This process is carried out recursively until the string becomes a palindrome or the k value runs out. If after all the character replacements the string still cannot be a palindrome, the function will return -1.
