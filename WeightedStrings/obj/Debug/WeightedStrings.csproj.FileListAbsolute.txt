@@ -4,3 +4,4 @@ R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\WeightedS
 R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\WeightedStrings\obj\Debug\WeightedStrings.csproj.CoreCompileInputs.cache
 R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\WeightedStrings\obj\Debug\WeightedStrings.exe
 R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\WeightedStrings\obj\Debug\WeightedStrings.pdb
+R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\WeightedStrings\obj\Debug\WeightedStrings.csproj.AssemblyReference.cache

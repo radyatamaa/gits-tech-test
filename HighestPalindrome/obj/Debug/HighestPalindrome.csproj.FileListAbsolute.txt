@@ -1,0 +1,7 @@
+R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\HighestPalindrome\bin\Debug\HighestPalindrome.exe.config
+R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\HighestPalindrome\bin\Debug\HighestPalindrome.exe
+R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\HighestPalindrome\bin\Debug\HighestPalindrome.pdb
+R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\HighestPalindrome\obj\Debug\HighestPalindrome.csproj.AssemblyReference.cache
+R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\HighestPalindrome\obj\Debug\HighestPalindrome.csproj.CoreCompileInputs.cache
+R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\HighestPalindrome\obj\Debug\HighestPalindrome.exe
+R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\HighestPalindrome\obj\Debug\HighestPalindrome.pdb

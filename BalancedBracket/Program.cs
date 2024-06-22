@@ -20,16 +20,20 @@ namespace BalancedBracket
 
             foreach (char bracket in s)
             {
-                if (bracketPairs.ContainsValue(bracket))
+                if (bracketPairs.ContainsKey(bracket))
+                {
+                    stack.Push(bracket);
+                }
+                else if (bracketPairs.ContainsValue(bracket))
                 {
                     if (stack.Count == 0 || bracketPairs[stack.Pop()] != bracket)
                     {
                         return "NO";
                     }
                 }
-                else if (bracketPairs.ContainsKey(bracket))
+                else if (bracket != ' ' && bracket != '\t' && bracket != '\n')
                 {
-                    stack.Push(bracket);
+                    return "INVALID CHARACTER, ONLY ABLE BRACKET (),{},[]";
                 }
             }
 
@@ -38,11 +42,19 @@ namespace BalancedBracket
 
         static void Main(string[] args)
         {
-            string[] inputs = { "{[()]}", "{[(])}", "{{[[(())]]}}" };
-            foreach (string input in inputs)
+            Console.WriteLine("Click 'x' to exit, or enter a string containing brackets:");
+
+            while (true)
             {
+                string input = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(input))
+                {
+                    continue;
+                }
+
                 Console.WriteLine($"Input: {input}");
-                Console.WriteLine($"Output: {CheckBalancedBracket(input)}\n");
+                Console.WriteLine($"Output: {CheckBalancedBracket(input)}");
             }
         }
     }

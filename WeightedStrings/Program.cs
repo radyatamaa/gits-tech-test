@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WeightedStrings
 {
@@ -11,51 +8,67 @@ namespace WeightedStrings
         public static List<string> CheckWeights(string s, int[] queries)
         {
             List<string> result = new List<string>();
-            int[] weights = CalculateWeights(s);
+            HashSet<int> weights = new HashSet<int>();
+
+            int i = 0;
+            while (i < s.Length)
+            {
+                int currentWeight = 0;
+                int repeatCount = 0;
+                char currentChar = s[i];
+                while (i < s.Length && s[i] == currentChar)
+                {
+                    repeatCount++;
+                    currentWeight += s[i] - 'a' + 1;
+                    weights.Add(currentWeight);
+                    i++;
+                }
+            }
 
             foreach (int query in queries)
             {
-                bool found = false;
-                for (int i = 0; i < s.Length; i++)
-                {
-                    for (int j = i + 1; j <= s.Length; j++)
-                    {
-                        int substringWeight = weights[j] - weights[i];
-                        if (query == substringWeight)
-                        {
-                            result.Add("Yes");
-                            found = true;
-                            break;
-                        }
-                    }
-                    if (found) break;
-                }
-                if (!found) result.Add("No");
+                result.Add(weights.Contains(query) ? "Yes" : "No");
             }
 
             return result;
         }
 
-        private static int[] CalculateWeights(string s)
-        {
-            int[] weights = new int[s.Length + 1];
-            weights[0] = 0;
-
-            for (int i = 0; i < s.Length; i++)
-            {
-                weights[i + 1] = weights[i] + s[i] - 'a' + 1;
-            }
-
-            return weights;
-        }
-
         static void Main(string[] args)
         {
-            string s = "abbcccd";
-            int[] queries = { 1, 3, 9, 8 };
-            List<string> result = CheckWeights(s, queries);
+            while (true)
+            {
+                Console.WriteLine("Enter a string:");
+                string s = Console.ReadLine();
 
-            Console.WriteLine("Output: [" + string.Join(", ", result) + "]");
+                Console.WriteLine("Enter the number of queries:");
+                int queryCount;
+                while (!int.TryParse(Console.ReadLine(), out queryCount) || queryCount < 1)
+                {
+                    Console.WriteLine("Please enter a valid number of queries.");
+                }
+
+                int[] queries = new int[queryCount];
+                for (int i = 0; i < queryCount; i++)
+                {
+                    Console.WriteLine($"Enter query {i + 1}:");
+                    while (!int.TryParse(Console.ReadLine(), out queries[i]) || queries[i] < 0)
+                    {
+                        Console.WriteLine("Please enter a valid query.");
+                    }
+                }
+
+                List<string> result = CheckWeights(s, queries);
+
+                Console.WriteLine("Output: [" + string.Join(", ", result) + "]");
+
+                Console.WriteLine("Click 'x' to exit, or any other key to continue...");
+                ConsoleKeyInfo key = Console.ReadKey(intercept: true);
+                if (key.Key == ConsoleKey.X)
+                {
+                    break;
+                }
+                Console.Clear();
+            }
         }
     }
 }

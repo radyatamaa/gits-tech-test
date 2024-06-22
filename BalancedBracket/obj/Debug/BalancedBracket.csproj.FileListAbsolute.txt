@@ -1,0 +1,7 @@
+R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\BalancedBracket\bin\Debug\BalancedBracket.exe.config
+R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\BalancedBracket\bin\Debug\BalancedBracket.exe
+R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\BalancedBracket\bin\Debug\BalancedBracket.pdb
+R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\BalancedBracket\obj\Debug\BalancedBracket.csproj.AssemblyReference.cache
+R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\BalancedBracket\obj\Debug\BalancedBracket.csproj.CoreCompileInputs.cache
+R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\BalancedBracket\obj\Debug\BalancedBracket.exe
+R:\radya\project\project\project\pribadi\technical_test\gits-tech-test\BalancedBracket\obj\Debug\BalancedBracket.pdb

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HighestPalindrome
 {
@@ -10,68 +6,92 @@ namespace HighestPalindrome
     {
         public static string FindHighestPalindrome(string str, int k)
         {
-            if (IsPalindrome(str))
-            {
-                return str;
-            }
-            else if (k <= 0)
-            {
-                return "-1";
-            }
-            else
-            {
-                char[] arr = str.ToCharArray();
-                int n = arr.Length;
-                int i = 0, j = n - 1;
-                while (i <= j)
-                {
-                    if (arr[i] != arr[j])
-                    {
-                        char maxChar = (char)Math.Max(arr[i], arr[j]);
-                        arr[i] = maxChar;
-                        arr[j] = maxChar;
-                        k--;
-                    }
-                    i++;
-                    j--;
-                }
-                return FindHighestPalindrome(new string(arr), k);
-            }
-        }
-
-        private static bool IsPalindrome(string str)
-        {
+            char[] arr = str.ToCharArray();
+            int n = arr.Length;
             int i = 0;
-            int j = str.Length - 1;
+            int j = n - 1;
+            int replacements = 0;
 
+            
             while (i < j)
             {
-                if (str[i] != str[j])
+                if (arr[i] != arr[j])
                 {
-                    return false;
+                    arr[i] = arr[j] = (char)Math.Max(arr[i], arr[j]);
+                    replacements++;
                 }
                 i++;
                 j--;
             }
 
-            return true;
+            
+            if (replacements > k)
+            {
+                return "-1";
+            }
+
+            i = 0;
+            j = n - 1;
+
+            
+            while (i <= j && k > replacements)
+            {
+                if (i == j)
+                {
+                    
+                    arr[i] = '9';
+                    break;
+                }
+
+                if (arr[i] != '9')
+                {
+                    if (replacements < k && arr[i] == str[i] && arr[j] == str[j])
+                    {
+                        
+                        arr[i] = arr[j] = '9';
+                        k -= 2;
+                    }
+                    else if (replacements == k && arr[i] != str[i] && arr[j] != str[j])
+                    {
+                        
+                        arr[i] = arr[j] = '9';
+                        k--;
+                    }
+                }
+
+                i++;
+                j--;
+            }
+
+            return new string(arr);
         }
 
         static void Main(string[] args)
         {
-            string str = "3943";
-            int k = 1;
-            Console.WriteLine("Input:");
-            Console.WriteLine($"string: {str}");
-            Console.WriteLine($"k: {k}");
-            Console.WriteLine($"Output: {FindHighestPalindrome(str, k)}\n");
+            while (true)
+            {
+                Console.WriteLine("Enter a string:");
+                string str = Console.ReadLine();
 
-            str = "3943";
-            k = 2;
-            Console.WriteLine("Input:");
-            Console.WriteLine($"string: {str}");
-            Console.WriteLine($"k: {k}");
-            Console.WriteLine($"Output: {FindHighestPalindrome(str, k)}\n");
+                Console.WriteLine("Enter k:");
+                if (!int.TryParse(Console.ReadLine(), out int k))
+                {
+                    Console.WriteLine("Invalid input for k.");
+                    continue;
+                }
+
+                Console.WriteLine($"Input:");
+                Console.WriteLine($"string: {str}");
+                Console.WriteLine($"k: {k}");
+                Console.WriteLine($"Output: {FindHighestPalindrome(str, k)}\n");
+
+                Console.WriteLine("Click 'x' to exit, or any other key to continue...");
+                if (Console.ReadKey().Key == ConsoleKey.X)
+                {
+                    break;
+                }
+                Console.WriteLine(); 
+            }
         }
     }
 }
